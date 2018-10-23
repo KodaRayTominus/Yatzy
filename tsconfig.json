@@ -1,0 +1,15 @@
+{
+    "files":[
+        "ts/DiceFace.ts",
+        "ts/DiceSix.ts",
+        "ts/YatzyGame.ts",
+        "ts/GamePlayer.ts",
+        "ts/main.ts"  
+    ],
+    "compilerOptions": {
+        "removeComments": true,
+        "outFile": "js/code.js",
+        "target": "es6",
+        "watch": true
+    }
+}

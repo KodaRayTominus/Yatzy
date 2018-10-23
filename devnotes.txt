@@ -1,0 +1,115 @@
+class Dice{
+    faceRot:string[] = ["rotate3d(0, 0, 1, -90deg)",
+                "rotate3d(1, 0, 0, 180deg)",
+                "rotate3d(1, 0, 0, 90deg)",
+                "rotate3d(1, 0, 0, -90deg)",
+                "rotate3d(0, 1, 0, -90deg)",
+                "rotate3d(0, 1, 0, 90deg)"]
+
+var dice = document.getElementsByClassName("dice")[0];
+
+dice.addEventListener("click", rollDice);
+
+function rollDice() {
+  
+  var faces = document.getElementsByClassName("dice-face");
+  
+  for(var fIt = 0; fIt < faces.length; fIt++) {
+    faces[fIt].style.backgroundColor = "white";
+  }
+  
+  var randFace = Math.round(Math.random() * 5);
+  
+  dice.style.left = Math.random()*innerWidth + "px";
+  dice.style.top = Math.random()*innerHeight + "px";
+  
+  dice.style.transform = "rotate3d(1, 0, 0, " + Math.random() * 360 +  "deg) rotate3d(0, 1, 0, " + Math.random() * 360 +  "deg) rotate3d(0, 0, 1, " + Math.random() * 360 +  "deg)";
+  
+  setTimeout( function() {
+    dice.style.transform = faceRot[randFace];
+    document.getElementsByClassName("dice-face")[randFace].style.backgroundColor = "green";
+  }, 900 );
+}
+
+
+if(isValidScore(tempScore)){
+                clearUnusedScores(currentScoreSections);
+                scoreSection.innerText = tempScore;
+                scoreSection.classList.remove("clickableTable");
+                addScoreToTotals(tempScore);
+                game.changePlayer();
+            } else if(givingUpTurn()){
+                clearUnusedScores(currentScoreSections);
+                scoreSection.innerText = "0";
+                scoreSection.classList.remove("clickableTable");
+                game.changePlayer();
+                
+            }
+
+
+function givingUpTurn():boolean{
+    let flag = 0;
+
+    if(game.getCurrentPlayerTurnCount() == 3){
+        for (let index = 0; index < currentScoreSections.length; index++) {
+            let currentInnerText:string = currentScoreSections[index].innerHTML;
+            if(currentScoreSections[index].classList.contains("clickableTable") && currentInnerText != null || currentInnerText != "0"){
+                flag++;
+            }
+        }
+        if(flag > 0){
+            return false;
+        }
+    }   return true;
+}
+
+    /**
+     * adds 25 points to player score
+     */
+    addFullHouse(){
+        this.addPointsToTotal(25);
+
+    }
+
+    /**
+     * adds 30 points to player score
+     */
+    addSmallStraight(){
+        this.addPointsToTotal(30);
+    }
+
+    /**
+     * adds 40 points to player score
+     */
+    addLargeStraightInHand(){
+        this.addPointsToTotal(40);
+    }
+    /**
+     * adds 50 points to player score
+     */
+    addYatzyInHand(){
+        this.addPointsToTotal(50);
+    }
+
+        /**
+     * saves dice values into hand for caluclations
+     * @param diceSlot dice slot to be saved too
+     * @param value value to be saved into diceslot
+     */
+/*     addToHand(diceSlot:number, value:number){
+        this.heldDie[diceSlot] = value;
+    } */
+
+    /**
+     * checks if value is saved already
+     * @param diceSlot dice slot to be checked
+     * @param value value to be checked
+     */
+/*     isInHand(diceSlot, value){
+        if(this.heldDie[diceSlot] == value){
+            return true;
+        }
+        return false;
+    } */
+
+

@@ -1,0 +1,11 @@
+{
+    "files":[
+        "ts/diceRoll.ts"   
+    ],
+    "compilerOptions": {
+        "removeComments": true,
+        "outFile": "js/code.js",
+        "target": "es2015",
+        "watch": true
+    }
+}
