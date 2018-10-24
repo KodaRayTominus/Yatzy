@@ -4,7 +4,7 @@ class DiceFace extends HTMLElement {
         this.setAttribute("class", "dice-face");
     }
 }
-customElements.define('dice-face', DiceFace, { extends: "div" });
+customElements.define('dice-face', DiceFace);
 class DiceSixSided extends HTMLElement {
     constructor() {
         super();
@@ -65,7 +65,7 @@ class DiceSixSided extends HTMLElement {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-customElements.define('dice-six-sided', DiceSixSided, { extends: "div" });
+customElements.define('dice-six-sided', DiceSixSided);
 class YatzyGame {
     constructor() {
         this.inPlay = new Array(5);
